@@ -1,6 +1,6 @@
 <?php
 
-
+//variables to use
 $mode = "dark";
 $first_name = filter_input(INPUT_GET,'first_name',FILTER_SANITIZE_STRING);
 $last_name = filter_input(INPUT_GET,'last_name',FILTER_SANITIZE_STRING);
@@ -23,6 +23,7 @@ $print_statement =( $age < 18?"I am {$age} years old,{$statement_less}":"I am {$
 <body <?php if ($mode === "dark"): ?> class = "dark"<?php endif ?>>
     
     <?php 
+    //check if parameters are set and empty
     if(isset($first_name)&& isset($last_name)&&isset($age)){
         if(!empty($first_name)&& !empty($last_name)&& !empty($age) ){
             echo  "<h2>Hello, my name is {$first_name} {$last_name}.</h2>";
