@@ -5,7 +5,7 @@ $mode = "dark";
 $first_name = filter_input(INPUT_GET,'first_name',FILTER_SANITIZE_STRING);
 $last_name = filter_input(INPUT_GET,'last_name',FILTER_SANITIZE_STRING);
 $age=filter_input(INPUT_GET,'age',FILTER_SANITIZE_STRING);
-$days = $age * 365;
+$days = (int)$age * 365;
 $statement_greater = "and I am old enough to vote in the United States.";
 $statement_less ="and I am not old enough to vote in the United States.";
 $print_statement =( $age < 18?"I am {$age} years old,{$statement_less}":"I am {$age} years old, {$statement_greater}");
@@ -26,8 +26,7 @@ $print_statement =( $age < 18?"I am {$age} years old,{$statement_less}":"I am {$
     if(isset($first_name)&& isset($last_name)&&isset($age)){
         if(!empty($first_name)&& !empty($last_name)&& !empty($age) ){
             echo  "<h2>Hello, my name is {$first_name} {$last_name}.</h2>";
-            echo "<br>";
-           
+            echo "<br>";           
             echo $print_statement;
             echo "<br>";
             echo "That means I'm at least {$days} days old";
