@@ -31,9 +31,9 @@ $print_statement =( $age < 18?"I am {$age} years old,{$statement_less}":"I am {$
             echo $print_statement;
             echo "<br>";
             echo "That means I'm at least {$days} days old";
-        }else{echo "Parameter not set";}
+        }else{echo '<div class= "error"><h1>Parameter not set</h1></div>';}
     }
-    else{echo "Please provide required details, first_name,last_name, and age";}  
+    else{echo '<div class= "error"><h1>Please provide required details, first_name,last_name, and age</h1></div>';}  
     
     
         ?>
