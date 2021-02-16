@@ -60,10 +60,10 @@ require('database.php');
                         $statement->closeCursor(); 
                         header('location: index.php');
                      } ?>
-                
+                <?php if(empty($results)) echo "List is empty";?>
             </section>
 
-            <?php if(empty($results)) echo "List is empty";?>
+            
             <section>
                 <table>
                     <thead>
@@ -73,6 +73,7 @@ require('database.php');
                         </tr>
                     </thead>
                     <tbody>
+                    
                         <?php 
                             foreach ($results as $result){ ?>
                                 <tr>
@@ -80,7 +81,8 @@ require('database.php');
                                     <td class="task"><?php echo $result['Description']?></td>
                                     <td >
                                         <form action="delete.php" method="POST">
-                                            <input type="submit" name="itemNum" value="<?php echo $result['itemNum']; ?>">
+                                            <button class="delete" type="submit" name="itemNum" value="<?php echo $result['itemNum']; ?>">X
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>
