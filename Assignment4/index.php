@@ -80,7 +80,7 @@
                 <tr>
                     <td><?php echo $item['Title'];?></td>
                     <td><?php echo $item['Description'];?></td>
-                    <td><?php echo $item['categoryName'];?></td>
+                    <td><?php echo $category_name?></td>
                     <td>
                         <form action="#">
                             <input type="submit" value="Delete">
