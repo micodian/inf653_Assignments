@@ -26,6 +26,7 @@
                     <th>Title</th>
                     <th>Description</th>
                     <th>Category</th>
+                    <th>&nbsp;</th>
                 </tr>
                 <tr>
                     <td></td>
@@ -41,7 +42,7 @@
             </table>
 
             <p><a href="#">Add New Item</a></p>
-            <p><a href="#">View/Edit Categories</a></p>
+            <p><a href="category_list.php">View/Edit Categories</a></p>
        </section> 
     </main>
 
