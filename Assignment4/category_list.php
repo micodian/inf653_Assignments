@@ -1,5 +1,13 @@
 <?php
 require_once('database.php');
+
+// Get all categories
+$query = 'SELECT * FROM categories
+                       ORDER BY categoryID';
+$statement = $db->prepare($query);
+$statement->execute();
+$categories = $statement->fetchAll();
+$statement->closeCursor();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,12 +26,30 @@ require_once('database.php');
             <th>Name</th>
             <th>&nbsp;</th>
         </tr>
-        <tr></tr>
-
+        <?php foreach ($categories as $category) : ?>
+        <tr>
+            <td><?php echo $category['categoryName']; ?></td>
+            <td>
+            <!--deleting category -->
+            <form action="delete_category.php" method="post">
+                <input type="hidden" name="category_id" value="<?php echo $category['categoryID']; ?>">
+                <input type="submit" value="Delete">
+            </form>
+            </td>
+        </tr>
+        <?php endforeach; ?>
     </table><br><br>
     
     <h2>Add Category</h2>
     <!-- Code for adding category -->
+    
+    <form action="add_category.php" method="post">
+        <label for="categoryName"> Name </label>
+            <input type="text" name="categoryName" required>
+            <input type="submit" value="Add category">
+    </form>
+    
+    
 
     <br>
     <p><a href="index.php">View Todo List</a></p>

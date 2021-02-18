@@ -102,20 +102,20 @@ br {
 	margin-bottom: 2em;	
 }
 /********************************************************************
-* Additional styles for the Product Manager application
+* Additional styles 
 ********************************************************************/
-#add_product_form {
+#add_item_form {
     margin: .5em 0 1em;
 }
-#add_product_form label {
+#add_item_form label {
     width: 6em;
     padding-right: 1em;
     padding-bottom: .5em;
     float: left;
 }
-#add_product_form input {
+#add_item_form input {
     float: left;
 }
-#add_product_form input[text] {
+#add_item_form input[text] {
     width: 15em;
 }

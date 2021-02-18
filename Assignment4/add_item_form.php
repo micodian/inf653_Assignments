@@ -33,12 +33,12 @@ $statement->closeCursor();
                     <?php echo $category['categoryName']; ?>
                 </option>
             <?php endforeach; ?>
-            </select><br>
+            </select><br><br>
 
-            <label>Title:</label>
+            <label>Title: </label>
             <input type="text" name="title"><br>
 
-            <label>Description:</label>
+            <label>Desc:</label>
             <input type="text" name="description"><br>
 
             <label>&nbsp;</label>

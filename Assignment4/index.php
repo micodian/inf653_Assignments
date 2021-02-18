@@ -73,16 +73,18 @@
                 <tr>
                     <th>Title</th>
                     <th>Description</th>
-                    <th>Category</th>
+                    <th class="right">Category</th>
                     <th>&nbsp;</th>
                 </tr>
                 <?php foreach ($items as $item) :?>
                 <tr>
                     <td><?php echo $item['Title'];?></td>
                     <td><?php echo $item['Description'];?></td>
-                    <td><?php echo $category_name?></td>
+                    <td class="right"><?php echo $category_name?></td>
                     <td>
-                        <form action="#">
+                        <form action="delete_item.php" method="post">
+                            <input type="hidden" name="itemNum" value="<?php echo $item['itemNum'];?>">
+                            <input type="hidden" name="category_id" value="<?php echo $item['categoryID'];?>">
                             <input type="submit" value="Delete">
                         </form>
                     </td>
