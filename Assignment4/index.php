@@ -65,6 +65,8 @@
             </ul>
             </nav>
         </aside>
+                    <!-- testing initial page -->
+     
 
        <section>
        <!-- DISPLAY TABLE OF ITEMS -->

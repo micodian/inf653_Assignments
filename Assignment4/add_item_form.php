@@ -13,7 +13,7 @@ $statement->closeCursor();
 
 <!-- the head section -->
 <head>
-    <title>My Guitar Shop</title>
+    <title>Todo Item</title>
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
