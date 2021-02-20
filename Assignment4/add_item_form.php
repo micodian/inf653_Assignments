@@ -28,6 +28,7 @@ $statement->closeCursor();
 
             <label>Category:</label>
             <select name="category_id">
+                <!-- <option value="All categories">All categories</option> -->
             <?php foreach ($categories as $category) : ?>
                 <option value="<?php echo $category['categoryID']; ?>">
                     <?php echo $category['categoryName']; ?>
@@ -38,7 +39,7 @@ $statement->closeCursor();
             <label>Title: </label>
             <input type="text" name="title"><br>
 
-            <label>Desc:</label>
+            <label>Description:</label>
             <input type="text" name="description"><br>
 
             <label>&nbsp;</label>
