@@ -10,7 +10,7 @@ function get_categories(){
     $categories = $statement->fetchAll();
     $statement->closeCursor();
     return $categories;
-    //echo 'i am done with categories';
+    
 }
 
 function get_category_name($category_id){

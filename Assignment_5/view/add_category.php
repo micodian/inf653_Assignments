@@ -34,6 +34,7 @@
 
     <br>
     <p><a href="?action=show_item_list">View Todo List</a></p>
+    <p class="last_paragraph"><a href="?action=show_add_item_form">Add New Item</a></p>
 
 </main>
 

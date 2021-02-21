@@ -51,13 +51,13 @@
 <body>
     <header><h1>My Todo List</h1></header><br>
     <main>
-        <aside>
+    <aside>
             <!-- display list of categories -->
             <h2>Categories</h2>
             <nav>
             <ul>
                 <?php foreach ($categories as $category) : ?>
-                <li><a href=".?category_id=<?php echo $category['categoryID']; ?>">
+                <li><a href="?category_id=<?php echo $category['categoryID']; ?>">
                     <?php echo $category['categoryName'];?>
                     </a>
                 </li>
@@ -66,8 +66,9 @@
             </nav>
         </aside>
                     <!-- testing initial page -->
-     
 
+        
+      <!--   end test      -->
        <section>
        <!-- DISPLAY TABLE OF ITEMS -->
        <h2><?php echo $category_name; ?> </h2>

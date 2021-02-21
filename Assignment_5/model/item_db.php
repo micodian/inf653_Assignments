@@ -53,16 +53,29 @@ function delete_items($itemNum){
 function add_items($category_id,$title,$description){
     global $db;
     //count to flag item deleted to be returned 
-    $query = 'INSERT INTO todoitems
+    if($category_id){
+        $query = 'INSERT INTO todoitems
                  (categoryID, Title, Description)
               VALUES
                  (:category_id, :title, :description)';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':category_id', $category_id);
-    $statement->bindValue(':title', $title);
-    $statement->bindValue(':description', $description);
-    $statement->execute();
-    $statement->closeCursor(); 
+        $statement = $db->prepare($query);
+        $statement->bindValue(':category_id', $category_id);
+        $statement->bindValue(':title', $title);
+        $statement->bindValue(':description', $description);
+        $statement->execute();
+        $statement->closeCursor(); 
+    }else{
+        $query = 'INSERT INTO todoitems
+                 (Title, Description)
+              VALUES
+                 (:title, :description)';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':title', $title);
+        $statement->bindValue(':description', $description);
+        $statement->execute();
+        $statement->closeCursor();
+    }
+     
 }
 
 ?>

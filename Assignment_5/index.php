@@ -6,7 +6,6 @@ require('model/item_db.php');
 //init show all items in a table with the item_list.php file
 $action = filter_input(INPUT_POST, 'action');
 if($action == NULL){
-    //echo nl2br("i am in the first if\n");
     $action = filter_input(INPUT_GET,'action');
     if($action == NULL){
         $action= 'show_item_list';
@@ -19,11 +18,11 @@ if($action == 'show_item_list'){
        get_items_by_category(null);
     }
     $categories = get_categories();
-    //echo nl2br("afer first categories\n");
+    if(!$categories){
+        echo '<p>Category is Empty, Please <a href="?action=show_add_category_form">Add category</a></p>';
+    }
     $category_name= get_category_name($category_id);
-    //echo nl2br("after get categoryname\n");
     $items = get_items_by_category($category_id);
-    //echo 'i am here';
     include('view/item_list.php');
 }else if($action == 'delete_item'){
     $itemNum = filter_input(INPUT_POST, 'itemNum', 
@@ -45,12 +44,13 @@ if($action == 'show_item_list'){
             FILTER_VALIDATE_INT);
     $title = filter_input(INPUT_POST, 'title');
     $description = filter_input(INPUT_POST, 'description');
-    if($category_id || $title || $description){
+    if($category_id && $title && $description){
         add_items($category_id,$title,$description);
         header("Location: .?action=show_add_item_form");
     }else{
         $error = "Invalid item data.";
         include('view/error.php');
+        //header("Location: .?action=show_add_item_form");
     }
 
 }else if($action == 'show_add_category_form'){

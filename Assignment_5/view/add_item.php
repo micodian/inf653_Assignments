@@ -15,15 +15,16 @@
             </select><br><br>
 
             <label>Title: </label>
-            <input type="text" name="title" required><br>
+            <input type="text" name="title" ><br>
 
             <label>Description:</label>
-            <input type="text" name="description" required><br>
+            <input type="text" name="description" ><br>
 
             <label>&nbsp;</label>
             <input type="submit" value="Add Item"><br>
         </form>
-        <p class="last_paragraph"><a href="index.php?action=show_item_list">View Item List</a></p>
+        <p><a href="index.php?action=show_item_list">View Item List</a></p>
+        <p class="last_paragraph"><a href="index.php?action=show_add_category_form">Add New Category</a></p>
     </main>
 
 <?php include 'footer.php'; ?>     
