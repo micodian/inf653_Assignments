@@ -1,5 +1,8 @@
 <?php
+//echo nl2br("\ninside category db\n");
+
 function get_categories(){
+    global $db;
     $query = 'SELECT * FROM categories
                        ORDER BY categoryID';
     $statement = $db->prepare($query);
@@ -7,9 +10,11 @@ function get_categories(){
     $categories = $statement->fetchAll();
     $statement->closeCursor();
     return $categories;
+    //echo 'i am done with categories';
 }
 
 function get_category_name($category_id){
+    global $db;
     $query = 'SELECT * FROM categories
                        WHERE categoryID= :category_id';
     $statement = $db->prepare($query);
@@ -17,26 +22,28 @@ function get_category_name($category_id){
     $statement->execute();
     $categories = $statement->fetch();
     $statement->closeCursor();
-    $categoryName = $category['categoryName'];
+    $category_name = $category['categoryName'];
     if(!$categoryName){
-        $categoryName='None';
+       $categoryName='None';
     }
-    return $categoryName;
+    return $category_name;
 }
 
-function add_category($categoryName){
+function add_category($category_name){
+    global $db;
     //count to flag item deleted to be returned 
     $query = 'INSERT INTO categories
                  (categoryName)
               VALUES
-                 (:categoryName)';
+                 (:category_name)';
     $statement = $db->prepare($query);
-    $statement->bindValue(':categoryName', $categoryName);
+    $statement->bindValue(':category_name', $category_name);
     $statement->execute();
     $statement->closeCursor();
 }
 
 function delete_category($category_id){
+    global $db;
     //count to flag item deleted to be returned 
     $query = 'DELETE FROM categories
               WHERE categoryID = :category_id';

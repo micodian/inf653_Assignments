@@ -32,11 +32,12 @@
                 <tr>
                     <td><?php echo $item['Title'];?></td>
                     <td><?php echo $item['Description'];?></td>
-                    <td class="right"><?php echo $category_name?></td>
+                    <td class="right" ><?php echo $item['categoryName']; ?></td>
                     <td>
                         <form action="." method="post">
+                            <input type="hidden" name="action" value="delete_item">
                             <input type="hidden" name="itemNum" value="<?php echo $item['itemNum'];?>">
-                            <input type="hidden" name="category_id" value="<?php echo $item['categoryID'];?>">
+                            <input type="hidden" name="categoryID" value="<?php echo $item['categoryID'];?>">
                             <input type="submit" value="Delete">
                         </form>
                     </td>

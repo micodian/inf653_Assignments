@@ -1,20 +1,29 @@
 <?php
 function get_items_by_category($category_id){
     global $db;
-    //if $category_id is null
-    if(!$category_id){
+    //if $category_id is null INNER JOIN categories ON todoitems.categoryID = categories.categoryID , ORDER BY categoryID
+    if($category_id){
         $query = 'SELECT * FROM todoitems
-                         ';
-    }else{
-        $query = 'SELECT * FROM todoitems
+                        INNER JOIN categories ON 
+                        todoitems.categoryID=categories.categoryID
                          WHERE todoitems.categoryID= :category_id
-                             ORDER BY categoryID';
+                             ';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':category_id',$category_id);
+        $statement->execute();
+        $items = $statement->fetchAll();
+        $statement->closeCursor();                     
+    }else{
+        $query = 'SELECT * FROM todoitems 
+                    INNER JOIN categories ON  
+                        todoitems.categoryID=categories.categoryID 
+                          ';
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $items = $statement->fetchAll();
+        $statement->closeCursor();
     }
-    $statement = $db->prepare($query);
-    $statement->bindValue(':category_id',$category_id);
-    $statement->execute();
-    $items = $statement->fetchAll();
-    $statement->closeCursor();
+    
     return $items;
 }
 
