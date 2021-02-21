@@ -7,8 +7,8 @@
         $db = new PDO($dsn, $username, $password);
         //echo nl2br("database connected\n");
     } catch (PDOException $e) {
-        $error_message = $e->getMessage();
-        include('database_error.php');
+        $error = $e->getMessage();
+        include('view/error.php');
         exit();
     }
 ?>
