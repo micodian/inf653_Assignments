@@ -29,6 +29,7 @@
                     <th>&nbsp;</th>
                 </tr>
                 <?php foreach ($items as $item) :?>
+                
                 <tr>
                     <td><?php echo $item['Title'];?></td>
                     <td><?php echo $item['Description'];?></td>
